@@ -10,12 +10,12 @@ class ProductManager {
         const products = JSON.parse(await fs.readFile(this.path, 'utf-8'))
 
         if (products.some(prod => prod.code === product.code)) {
-            console.log(`There is already a product with the code: ${product.code}`)
+            console.log(`Producto existente: ${product.code}`)
             return
         }
 
         if (product.title === "" || product.description === "" || product.price === "" || product.thumbnail === "" || product.code === "" || product.stock < 0) {
-            console.log("Some fields are empty, please complete all fields")
+            console.log("complete los campos requeridos")
             return
         }
 
@@ -36,7 +36,7 @@ class ProductManager {
         const products = JSON.parse(await fs.readFile(this.path, 'utf-8'))
         const product = products.find(prod => prod.id === id)
 
-        product ? console.log(product) : console.log(`Product with ID: ${id} does not exist`)
+        product ? console.log(product) : console.log(`el producto con: ${id} no existe`)
     }
 
 
@@ -58,7 +58,7 @@ class ProductManager {
         }
 
         else {
-            console.log(`producto no encontrado ${id} not found`)
+            console.log(`no se a encontrado este producto ${id} `)
         }
     }
 
